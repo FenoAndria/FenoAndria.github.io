@@ -737,10 +737,10 @@ section {
 }
 
 .card-realisation:hover .realisation-lien {
-  animation-name: animate-link-icon;
+  /* animation-name: animate-link-icon;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-out
+  animation-timing-function: ease-out */
 }
 
 .realisation-titre h4 {
