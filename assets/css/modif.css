@@ -53,7 +53,7 @@ hr {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
-#preloader {
+ #preloader{
   position: fixed;
   top: 0;
   left: 0;
@@ -61,24 +61,178 @@ hr {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: var(--color-blue);
+  /* background: white; */
+  color: tomato
 }
+.preloader-content{
+  background: var(--color-blue);
+  height : 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+.newtons-cradle {
+  --uib-size: 50px;
+  --uib-speed: 1.2s;
+  --uib-color: tomato;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: var(--uib-size);
+  height: var(--uib-size);
+ }
+ 
+ .newtons-cradle__dot {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 25%;
+  -webkit-transform-origin: center top;
+      -ms-transform-origin: center top;
+          transform-origin: center top;
+ }
+ 
+ .newtons-cradle__dot::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 25%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
+ }
+ 
+ .newtons-cradle__dot:first-child {
+  -webkit-animation: swing var(--uib-speed) linear infinite;
+          animation: swing var(--uib-speed) linear infinite;
+ }
+ 
+ .newtons-cradle__dot:last-child {
+  -webkit-animation: swing2 var(--uib-speed) linear infinite;
+          animation: swing2 var(--uib-speed) linear infinite;
+ }
+ 
+ @-webkit-keyframes swing {
+  0% {
+   -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+   -webkit-animation-timing-function: ease-out;
+           animation-timing-function: ease-out;
+  }
+ 
+  25% {
+   -webkit-transform: rotate(70deg);
+           transform: rotate(70deg);
+   -webkit-animation-timing-function: ease-in;
+           animation-timing-function: ease-in;
+  }
+ 
+  50% {
+   -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+   -webkit-animation-timing-function: linear;
+           animation-timing-function: linear;
+  }
+ }
+ 
+ @keyframes swing {
+  0% {
+   -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+   -webkit-animation-timing-function: ease-out;
+           animation-timing-function: ease-out;
+  }
+ 
+  25% {
+   -webkit-transform: rotate(70deg);
+           transform: rotate(70deg);
+   -webkit-animation-timing-function: ease-in;
+           animation-timing-function: ease-in;
+  }
+ 
+  50% {
+   -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+   -webkit-animation-timing-function: linear;
+           animation-timing-function: linear;
+  }
+ }
+ 
+ @-webkit-keyframes swing2 {
+  0% {
+   -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+   -webkit-animation-timing-function: linear;
+           animation-timing-function: linear;
+  }
+ 
+  50% {
+   -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+   -webkit-animation-timing-function: ease-out;
+           animation-timing-function: ease-out;
+  }
+ 
+  75% {
+   -webkit-transform: rotate(-70deg);
+           transform: rotate(-70deg);
+   -webkit-animation-timing-function: ease-in;
+           animation-timing-function: ease-in;
+  }
+ }
+ 
+ @keyframes swing2 {
+  0% {
+   -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+   -webkit-animation-timing-function: linear;
+           animation-timing-function: linear;
+  }
+ 
+  50% {
+   -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+   -webkit-animation-timing-function: ease-out;
+           animation-timing-function: ease-out;
+  }
+ 
+  75% {
+   -webkit-transform: rotate(-70deg);
+           transform: rotate(-70deg);
+   -webkit-animation-timing-function: ease-in;
+           animation-timing-function: ease-in;
+  }
+ }
+ 
+/*
 #preloader:before {
   content: "";
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid var(--color-tomato);
+   border: 6px solid var(--color-tomato);
   border-top-color: var(--color-blue);
   border-bottom-color: var(--color-blue);
   border-radius: 50%;
   width: 60px;
   height: 60px;
   -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite; */
 }
-
+/*
 @-webkit-keyframes animate-preloader {
   0% {
     transform: rotate(0deg);
@@ -97,7 +251,7 @@ hr {
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 
 
 /*--------------------------------------------------------------
