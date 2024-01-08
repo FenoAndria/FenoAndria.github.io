@@ -728,10 +728,6 @@ section {
   color: var(--color-gris)
 }
 
-.experience-details li{
-  margin-bottom: 4px
-}
-
 .experience-stack {
   background-color: var(--color-gray);
   padding: 0 10px 0 10px;
