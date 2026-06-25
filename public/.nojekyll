@@ -1,0 +1,4 @@
+# Fichier .nojekyll
+
+Ce fichier indique à GitHub Pages de ne pas traiter le site avec Jekyll.
+Nécessaire pour les sites Next.js déployés sur GitHub Pages.

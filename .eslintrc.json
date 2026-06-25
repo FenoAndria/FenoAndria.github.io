@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    // Règles personnalisées pour maintenir la qualité du code
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-img-element": "warn",
+    "prefer-const": "warn",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ]
+  }
+}
