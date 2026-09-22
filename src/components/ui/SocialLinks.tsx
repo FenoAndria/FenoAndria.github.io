@@ -32,7 +32,7 @@ export default function SocialLinks({ size = 30, className = '' }: SocialLinksPr
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.name}
-            className={`flex items-center justify-center ${brand.rounded}`}
+            className={`flex items-center justify-center transition-transform duration-200 hover:-translate-y-0.5 hover:scale-110 ${brand.rounded}`}
             style={{ width: size, height: size, background: brand.background }}
           >
             <brand.Icon size={size / 2} color="#fff" aria-hidden />

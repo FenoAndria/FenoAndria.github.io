@@ -13,7 +13,7 @@ interface SkillCategoryCardProps {
 
 export default function SkillCategoryCard({ title, skills }: SkillCategoryCardProps) {
   return (
-    <div className="rounded-md border border-line bg-base p-[22px]">
+    <div className="rounded-md border border-line bg-base p-[22px] transition-colors duration-200 hover:border-accent">
       <div className="text-xs font-semibold uppercase tracking-[0.06em] text-accent">
         {title}
       </div>

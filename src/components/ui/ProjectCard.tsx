@@ -1,9 +1,14 @@
+'use client';
+
+import { useRef, type MouseEvent } from 'react';
 import Image from 'next/image';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import type { Project } from '@/types';
 
 /**
  * Carte projet : capture 170px (130px mobile), titre, méta,
  * description, ligne résultat accent2, chips techno et lien.
+ * Tilt 3D léger au survol, suivant la position du curseur.
  */
 
 interface ProjectCardProps {
@@ -12,15 +17,40 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const href = project.link ?? project.github ?? project.detailsPage;
+  const cardRef = useRef<HTMLElement>(null);
+
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const springConfig = { stiffness: 300, damping: 30, mass: 0.5 };
+  const rotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [7, -7]), springConfig);
+  const rotateY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-7, 7]), springConfig);
+
+  const handleMouseMove = (event: MouseEvent<HTMLElement>) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    pointerX.set((event.clientX - rect.left) / rect.width - 0.5);
+    pointerY.set((event.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    pointerX.set(0);
+    pointerY.set(0);
+  };
 
   return (
-    <article className="overflow-hidden rounded-md border border-line bg-base">
-      <div className="relative h-[130px] lg:h-[170px]">
+    <motion.article
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformPerspective: 800 }}
+      className="group overflow-hidden rounded-md border border-line bg-base transition-colors duration-300 hover:border-accent hover:shadow-[0_16px_32px_rgba(0,0,0,0.14)]"
+    >
+      <div className="relative h-[130px] overflow-hidden lg:h-[170px]">
         <Image
           src={project.image}
           alt={project.imageAlt}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
           sizes="(max-width: 1024px) 100vw, 480px"
         />
       </div>
@@ -46,12 +76,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3.5 inline-block text-xs font-semibold text-accent"
+            className="mt-3.5 inline-flex items-center gap-1 text-xs font-semibold text-accent transition-[gap] duration-200 hover:gap-2"
           >
-            Voir le projet →
+            Voir le projet <span aria-hidden>→</span>
           </a>
         )}
       </div>
-    </article>
+    </motion.article>
   );
 }

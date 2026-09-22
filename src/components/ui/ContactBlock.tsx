@@ -19,7 +19,7 @@ export default function ContactBlock() {
       <SocialLinks className="mt-[18px]" />
       <a
         href={`mailto:${profileData.email}`}
-        className="mt-[22px] inline-block rounded bg-accent px-6 py-3 text-[13px] font-semibold text-onaccent"
+        className="mt-[22px] inline-block rounded bg-accent px-6 py-3 text-[13px] font-semibold text-onaccent transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)] hover:brightness-110"
       >
         Envoyer un message
       </a>

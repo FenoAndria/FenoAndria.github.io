@@ -61,7 +61,7 @@ export default function SkillBadge({ id, name, icon: IconOverride, src }: SkillB
   const brand = BRAND_ICONS[id];
 
   return (
-    <span className="flex items-center gap-1.5 rounded border border-line bg-card py-[5px] pl-1.5 pr-2.5">
+    <span className="flex items-center gap-1.5 rounded border border-line bg-card py-[5px] pl-1.5 pr-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-sm">
       {IconOverride ? (
         <IconOverride size={16} aria-hidden />
       ) : src ? (

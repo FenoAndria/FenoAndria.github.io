@@ -47,9 +47,11 @@ export default function TimelineItem({
         />
         {!isLast && <div className="mt-1 w-[2px] flex-1 bg-line" />}
       </div>
-      <div className={`flex-1 ${isLast ? '' : 'pb-8'}`}>
-        <h3 className="font-heading text-base font-semibold text-body">{title}</h3>
-        <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-muted">
+      <div className={`group flex-1 ${isLast ? '' : 'pb-8'}`}>
+        <h3 className="font-heading text-base font-semibold text-body transition-colors duration-200 group-hover:text-accent">
+          {title}
+        </h3>
+        <div className="mt-1.5 flex flex-col gap-1 text-[13px] text-muted">
           {meta.map((item, index) => {
             const Icon = META_ICONS[item.icon];
             return (

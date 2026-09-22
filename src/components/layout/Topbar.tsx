@@ -51,10 +51,10 @@ export default function Topbar() {
               <a
                 key={item.id}
                 href={item.href}
-                className={`flex items-center gap-1.5 pb-1 text-[13px] ${
+                className={`flex items-center gap-1.5 pb-1 text-[13px] transition-colors duration-200 ${
                   isActive
                     ? 'border-b-2 border-accent font-semibold text-accent'
-                    : 'border-b-2 border-transparent font-normal text-muted'
+                    : 'border-b-2 border-transparent font-normal text-muted hover:text-body'
                 }`}
               >
                 {Icon && <Icon size={14} aria-hidden />}
@@ -68,7 +68,7 @@ export default function Topbar() {
           <a
             href={profileData.cvUrl}
             download
-            className="rounded border border-accent px-4 py-2 text-xs font-semibold text-accent"
+            className="rounded border border-accent px-4 py-2 text-xs font-semibold text-accent transition-colors duration-200 hover:bg-accent hover:text-onaccent"
           >
             CV ↓
           </a>
@@ -101,8 +101,8 @@ export default function Topbar() {
                   key={item.id}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className={`flex items-center gap-2.5 rounded-[5px] px-2.5 py-2 text-[13px] ${
-                    isActive ? 'font-semibold text-accent' : 'font-normal text-muted'
+                  className={`flex items-center gap-2.5 rounded-[5px] px-2.5 py-2 text-[13px] transition-colors duration-200 ${
+                    isActive ? 'font-semibold text-accent' : 'font-normal text-muted hover:text-body'
                   }`}
                   style={{
                     background: isActive

@@ -26,7 +26,7 @@ export default function OnepageRail() {
             aria-selected={isActive}
             aria-label={item.label}
             href={item.href}
-            className={`h-[9px] w-[9px] rounded-full ${isActive ? 'bg-accent' : 'bg-line'}`}
+            className={`h-[9px] w-[9px] rounded-full transition-all duration-200 hover:scale-150 ${isActive ? 'bg-accent' : 'bg-line hover:bg-accent'}`}
           />
         );
       })}
