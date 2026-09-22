@@ -10,6 +10,7 @@ Portfolio professionnel développé avec Next.js 14, TypeScript et Tailwind CSS.
 - **Langage**: [TypeScript](https://www.typescriptlang.org/)
 - **Styles**: [Tailwind CSS](https://tailwindcss.com/) + variables CSS (tokens par thème)
 - **Icônes**: [lucide-react](https://lucide.dev/) (UI) + [react-icons](https://react-icons.github.io/react-icons/) (logos de marque)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) (entrées au scroll, tiroir mobile, nav)
 - **Déploiement**: GitHub Pages via GitHub Actions
 
 ## ⚙️ Configuration (thème & structure)

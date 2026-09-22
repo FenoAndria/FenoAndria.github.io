@@ -110,16 +110,6 @@ export interface Project {
 }
 
 /**
- * Message de contact
- */
-export interface ContactMessage {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-/**
  * Élément de navigation
  */
 export interface NavItem {
