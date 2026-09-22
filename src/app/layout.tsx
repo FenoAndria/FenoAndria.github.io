@@ -9,6 +9,9 @@ import {
 import './globals.css';
 import { getTheme } from '@/lib/theme';
 import { getLayout } from '@/lib/layout';
+import { profileData } from '@/data/profile';
+
+const SITE_URL = 'https://fenoandria.github.io';
 
 /**
  * Polices Google chargées via next/font — exposées en variables CSS,
@@ -63,6 +66,7 @@ const fontVariables = [
  * Ces informations apparaissent dans les résultats de recherche et les réseaux sociaux
  */
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Feno Andriamorasata - Développeur Web',
   description: 'Portfolio professionnel de Feno Andriamorasata, développeur web spécialisé en Laravel, Vue.js, React et Next.js. Découvrez mes projets et compétences.',
   keywords: [
@@ -81,32 +85,6 @@ export const metadata: Metadata = {
   creator: 'Feno Andriamorasata',
   publisher: 'Feno Andriamorasata',
 
-  // Open Graph (Facebook, LinkedIn)
-  openGraph: {
-    type: 'website',
-    locale: 'fr_FR',
-    url: 'https://fenoandria.github.io',
-    siteName: 'Feno Andriamorasata - Portfolio',
-    title: 'Feno Andriamorasata - Développeur Web',
-    description: 'Portfolio professionnel de Feno Andriamorasata, développeur web passionné basé à Madagascar.',
-    images: [
-      {
-        url: '/images/profile/PXL_20221127_121207383~2.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Feno Andriamorasata',
-      },
-    ],
-  },
-
-  // Twitter Card
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Feno Andriamorasata - Développeur Web',
-    description: 'Portfolio professionnel de Feno Andriamorasata, développeur web passionné.',
-    images: ['/images/profile/PXL_20221127_121207383~2.jpg'],
-  },
-
   // Robots
   robots: {
     index: true,
@@ -120,10 +98,11 @@ export const metadata: Metadata = {
     },
   },
 
-  // Vérification
-  verification: {
-    google: 'votre-code-google-search-console', // À remplacer
-  },
+  // Vérification Google Search Console : décommenter et renseigner le code
+  // une fois le site ajouté sur https://search.google.com/search-console
+  // verification: {
+  //   google: 'code-fourni-par-search-console',
+  // },
 };
 
 /**
@@ -142,9 +121,31 @@ export default function RootLayout({
   const theme = getTheme();
   const layout = getLayout();
 
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: profileData.name,
+    url: SITE_URL,
+    image: `${SITE_URL}${profileData.image}`,
+    jobTitle: profileData.title,
+    description: profileData.description,
+    email: `mailto:${profileData.email}`,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: profileData.location,
+    },
+    sameAs: profileData.social.map((social) => social.url).filter((url) => url.startsWith('http')),
+  };
+
   return (
     <html lang="fr" data-theme={theme} data-layout={layout} className={fontVariables}>
       <head>
+        {/* Données structurées (Person) pour les résultats de recherche */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
