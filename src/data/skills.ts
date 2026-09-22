@@ -112,6 +112,24 @@ export const skillsData: Skill[] = [
     order: 7,
   },
   
+  // ========== BASES DE DONNÉES ==========
+  {
+    id: 'mysql',
+    name: 'MySQL',
+    category: 'databases',
+    level: 4,
+    icon: '/images/stack/mysql.svg',
+    order: 1,
+  },
+  {
+    id: 'mongodb',
+    name: 'MongoDB',
+    category: 'databases',
+    level: 3,
+    icon: '/images/stack/mongodb.svg',
+    order: 2,
+  },
+
   // ========== OUTILS ==========
   {
     id: 'git',
@@ -145,6 +163,7 @@ export const getSkillsByCategory = (category: Skill['category']) => {
  */
 export const categoryLabels = {
   languages: 'Langages',
-  frameworks: 'Framework & Librairies',
+  frameworks: 'Frameworks & librairies',
+  databases: 'Bases de données',
   tools: 'Outils',
 } as const;

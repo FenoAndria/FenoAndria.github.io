@@ -1,62 +1,32 @@
-'use client';
-
-import Image from 'next/image';
+import { Folder } from 'lucide-react';
 import { projectsData } from '@/data/projects';
+import ProjectCard from '@/components/ui/ProjectCard';
+
+/**
+ * Section Projets : grille 2 colonnes de cartes projet
+ * + emplacement "Nouveau projet" en pointillés.
+ */
 
 export default function Projects() {
+  const projects = [...projectsData].sort((a, b) => a.order - b.order);
+
   return (
-    <section id="realisation" className="realisation min-h-screen flex items-center">
-      <div className="container mx-auto px-6">
-        <div className="section-title">
-          <h2>Projets</h2>
-        </div>
-
-        <div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          {projectsData.map((project) => (
-            <div key={project.id} className="card-realisation">
-              <div className="p-4">
-                {/* Titre */}
-                <div className="realisation-titre">
-                  <h4>{project.title}</h4>
-                </div>
-                <hr />
-
-                {/* Image */}
-                <div className="realisation-img">
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    width={400}
-                    height={130}
-                    className="realisation-img-el"
-                    style={{ height: 130, width: '100%', objectFit: 'cover', borderRadius: 6, opacity: 0.85 }}
-                  />
-                </div>
-                <hr />
-
-                {/* Footer avec lien */}
-                <div className="flex justify-between items-center">
-                  <div />
-                  <div className="realisation-lien">
-                    {(project.github || project.detailsPage) && (
-                      <a
-                        href={project.github || project.detailsPage || '#'}
-                        target={project.github ? '_blank' : undefined}
-                        rel={project.github ? 'noopener noreferrer' : undefined}
-                        title="Plus de détails"
-                      >
-                        Plus...
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+    <section
+      id="sec-projects"
+      data-section="projects"
+      className="rounded-md border border-line bg-card p-6 lg:px-14 lg:py-11"
+    >
+      <h2 className="mb-7 flex items-center gap-2.5 font-heading text-2xl font-semibold text-body">
+        <Folder size={22} className="text-accent" aria-hidden />
+        Projets
+      </h2>
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+        <div className="flex min-h-[140px] flex-col items-center justify-center gap-2 rounded-md border border-dashed border-line lg:min-h-[340px]">
+          <div className="text-[28px] text-muted">+</div>
+          <div className="text-[13px] text-muted">Nouveau projet</div>
         </div>
       </div>
     </section>

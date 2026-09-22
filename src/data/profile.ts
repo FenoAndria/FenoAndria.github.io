@@ -9,7 +9,11 @@ import type { Profile } from '@/types';
 
 export const profileData: Profile = {
   name: 'Feno Andriamorasata',
+  shortName: 'Feno Andria',
   title: 'Développeur web',
+  headline: 'Développeur web',
+  tagline: 'Ouvert aux opportunités freelance',
+  stack: ['PHP', 'Laravel', 'VueJS', 'MySQL', 'Codeigniter'],
   description: `Développeur informatique passionné, je m'efforce de créer des applications robustes et évolutives, adaptées à divers environnements technologiques. Avec une approche centrée sur l'efficacité et l'innovation, je m'assure de répondre aux besoins spécifiques des projets tout en garantissant des solutions techniques de pointe et sécurisées.`,
   
   age: 26,
@@ -17,17 +21,18 @@ export const profileData: Profile = {
   email: 'feno.andriamorasata@gmail.com',
   location: 'Antananarivo - Madagascar',
   
-  image: '/images/profile/PXL_20221127_121207383~2.jpg',
+  image: '/images/profile/img-profile.webp',
   imageAlt: 'Photo de profil de Feno Andriamorasata',
   
   cvUrl: '/CV - Fenomanjato.pdf',
   
   social: [
-    {
-      name: 'Facebook',
-      url: 'https://facebook.com/feno.randriamorasata',
-      icon: 'bxl-facebook',
-    },
+    // Facebook désactivé pour le moment
+    // {
+    //   name: 'Facebook',
+    //   url: 'https://facebook.com/feno.randriamorasata',
+    //   icon: 'bxl-facebook',
+    // },
     {
       name: 'GitHub',
       url: 'https://github.com/FenoAndria',

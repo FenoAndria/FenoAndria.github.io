@@ -10,6 +10,12 @@
 
 import type { Project } from '@/types';
 
+/**
+ * Active/désactive la section Projets sur tout le site
+ * (sections, navigation, structures alternatives).
+ */
+export const projectsEnabled = false;
+
 export const projectsData: Project[] = [
   {
     id: 'cv-builder',
@@ -18,6 +24,7 @@ export const projectsData: Project[] = [
     image: '/images/projects/CV-Builder.jpg',
     imageAlt: 'Aperçu de l\'application CV Builder',
     technologies: ['VueJS', 'JavaScript', 'TailwindCSS'],
+    meta: 'Projet personnel',
     github: 'https://github.com/FenoAndria/cv-builder-vuejs',
     featured: true,
     order: 1,

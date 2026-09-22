@@ -1,17 +1,62 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import {
+  Inter,
+  JetBrains_Mono,
+  Space_Grotesk,
+  Fraunces,
+  Chakra_Petch,
+} from 'next/font/google';
 import './globals.css';
-// import 'boxicons/css/boxicons.min.css';
-import 'aos/dist/aos.css';
+import { getTheme } from '@/lib/theme';
+import { getLayout } from '@/lib/layout';
 
 /**
- * Configuration de la police Inter de Google Fonts
+ * Polices Google chargées via next/font — exposées en variables CSS,
+ * consommées par --font-heading / --font-body selon le thème (globals.css).
  */
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
   variable: '--font-inter',
 });
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-jetbrains-mono',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-space-grotesk',
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: 'variable',
+  axes: ['opsz'],
+  variable: '--font-fraunces',
+});
+
+const chakraPetch = Chakra_Petch({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-chakra-petch',
+});
+
+const fontVariables = [
+  inter.variable,
+  jetbrainsMono.variable,
+  spaceGrotesk.variable,
+  fraunces.variable,
+  chakraPetch.variable,
+].join(' ');
 
 /**
  * Métadonnées du site pour le SEO
@@ -35,7 +80,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Feno Andriamorasata', url: 'https://github.com/FenoAndria' }],
   creator: 'Feno Andriamorasata',
   publisher: 'Feno Andriamorasata',
-  
+
   // Open Graph (Facebook, LinkedIn)
   openGraph: {
     type: 'website',
@@ -53,7 +98,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  
+
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
@@ -61,7 +106,7 @@ export const metadata: Metadata = {
     description: 'Portfolio professionnel de Feno Andriamorasata, développeur web passionné.',
     images: ['/images/profile/PXL_20221127_121207383~2.jpg'],
   },
-  
+
   // Robots
   robots: {
     index: true,
@@ -74,7 +119,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  
+
   // Vérification
   verification: {
     google: 'votre-code-google-search-console', // À remplacer
@@ -83,15 +128,22 @@ export const metadata: Metadata = {
 
 /**
  * Layout principal de l'application
- * Enveloppe toutes les pages avec la structure HTML de base
+ *
+ * Le thème (A–E, Monochrome ink par défaut) et la structure (sidebar,
+ * topbar, …) sont fixés au build par NEXT_PUBLIC_PORTFOLIO_THEME et
+ * NEXT_PUBLIC_PORTFOLIO_LAYOUT, lus côté serveur — aucun state client,
+ * aucun flash de thème, pas de sélecteur visible.
  */
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const theme = getTheme();
+  const layout = getLayout();
+
   return (
-    <html lang="fr" className={inter.variable}>
+    <html lang="fr" data-theme={theme} data-layout={layout} className={fontVariables}>
       <head>
         {/* Google Tag Manager */}
         <script
@@ -105,11 +157,8 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Icônes */}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" />
       </head>
-      <body className={inter.className}>
+      <body className="font-body">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -119,7 +168,7 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        
+
         {children}
       </body>
     </html>

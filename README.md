@@ -8,11 +8,30 @@ Portfolio professionnel développé avec Next.js 14, TypeScript et Tailwind CSS.
 
 - **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
 - **Langage**: [TypeScript](https://www.typescriptlang.org/)
-- **Styles**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animations**: [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/)
-- **Icônes**: [Boxicons](https://boxicons.com/)
-- **Validation**: [Zod](https://zod.dev/) + [React Hook Form](https://react-hook-form.com/)
+- **Styles**: [Tailwind CSS](https://tailwindcss.com/) + variables CSS (tokens par thème)
+- **Icônes**: [lucide-react](https://lucide.dev/) (UI) + [react-icons](https://react-icons.github.io/react-icons/) (logos de marque)
 - **Déploiement**: GitHub Pages via GitHub Actions
+
+## ⚙️ Configuration (thème & structure)
+
+Le design est piloté par deux variables d'environnement lues **au build**
+(côté serveur, dans `src/app/layout.tsx` — aucun state client, aucun flash) :
+
+| Variable | Valeurs | Défaut |
+|---|---|---|
+| `NEXT_PUBLIC_PORTFOLIO_THEME` | `A` Terminal dev · `B` Blueprint technique · `C` Éditorial chaleureux · `D` Cyberpunk néon · `E` Monochrome ink (thème principal) | `E` |
+| `NEXT_PUBLIC_PORTFOLIO_LAYOUT` | `sidebar` Sidebar fixe · `topbar` Top-bar horizontale · `onepage` Une page = un écran · `bento` Bento / grille modulaire · `terminal` Terminal interactif | `sidebar` |
+
+```bash
+# Exemple : copier le modèle puis ajuster
+cp .env.example .env.local
+```
+
+Les tokens de chaque thème (couleurs, polices) sont déclarés dans
+`src/app/globals.css` via `html[data-theme="…"]`, et validés par les helpers
+`getTheme()` (`src/lib/theme.ts`) et `getLayout()` (`src/lib/layout.ts`).
+
+Il n'y a pas de sélecteur de thème visible : le thème est fixé au build.
 
 ## 📁 Structure du projet
 
@@ -26,21 +45,25 @@ FenoAndria.github.io/
 │   └── CV - Fenomanjato.pdf    # CV téléchargeable
 ├── src/
 │   ├── app/                    # Pages Next.js (App Router)
-│   │   ├── layout.tsx          # Layout principal
-│   │   ├── page.tsx            # Page d'accueil
-│   │   └── globals.css         # Styles globaux
+│   │   ├── layout.tsx          # Layout racine (fonts, data-theme, data-layout)
+│   │   ├── page.tsx            # Monte la structure choisie (env)
+│   │   └── globals.css         # Tokens par thème + styles de base
+│   ├── lib/
+│   │   ├── theme.ts            # getTheme() — NEXT_PUBLIC_PORTFOLIO_THEME
+│   │   └── layout.ts           # getLayout() — NEXT_PUBLIC_PORTFOLIO_LAYOUT
+│   ├── hooks/
+│   │   └── useActiveSection.ts # Section active (IntersectionObserver)
 │   ├── components/
-│   │   ├── layout/
-│   │   │   └── Header.tsx      # Navigation latérale
+│   │   ├── layout/             # Sidebar, Nav, MobileHeader, Topbar…
+│   │   ├── layouts/            # Les 5 structures (sidebar, topbar, onepage, bento, terminal)
 │   │   ├── sections/
 │   │   │   ├── About.tsx       # Section À propos
 │   │   │   ├── Experience.tsx  # Expériences professionnelles
 │   │   │   ├── Education.tsx   # Formations
 │   │   │   ├── Skills.tsx      # Compétences techniques
 │   │   │   ├── Projects.tsx    # Projets réalisés
-│   │   │   └── Contact.tsx     # Formulaire de contact
-│   │   └── ui/
-│   │       └── Preloader.tsx   # Animation de chargement
+│   │   │   └── Contact.tsx     # Bloc contact
+│   │   └── ui/                 # TimelineItem, SkillBadge, ProjectCard…
 │   ├── data/                   # Données structurées
 │   │   ├── profile.ts          # Informations personnelles
 │   │   ├── experiences.ts      # Expériences professionnelles

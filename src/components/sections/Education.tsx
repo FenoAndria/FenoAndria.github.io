@@ -1,44 +1,41 @@
-'use client';
-
+import { GraduationCap } from 'lucide-react';
 import { educationData } from '@/data/education';
+import TimelineItem from '@/components/ui/TimelineItem';
+
+/**
+ * Section Formations : timeline verticale des diplômes.
+ */
 
 export default function Education() {
+  const educations = [...educationData].sort((a, b) => a.order - b.order);
+
   return (
-    <section id="formations" className="experience min-h-screen flex items-center">
-      <div className="container mx-auto px-6">
-        <div className="section-title">
-          <h2>Formations</h2>
-        </div>
-
-        <div>
-          {educationData.map((edu, index) => (
-            <div
-              key={edu.id}
-              className="experience-item"
-              data-aos="fade-right"
-              data-aos-delay={100 * (index + 1)}
-            >
-              <h4>{edu.degree}</h4>
-
-              <h5>
-                <i className="bi bi-calendar3" />
-                {edu.period}
-              </h5>
-
-              <span className="experience-geo">
-                <i className="bi bi-geo-alt" />
-                {edu.institution} - {edu.location}
-              </span>
-
-              {edu.specialization && (
-                <ul className="experience-details">
-                  <li>Parcours : {edu.specialization}</li>
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+    <section
+      id="sec-formations"
+      data-section="formations"
+      className="rounded-md border border-line bg-card p-6 lg:px-14 lg:py-11"
+    >
+      <h2 className="mb-8 flex items-center gap-2.5 font-heading text-2xl font-semibold text-body">
+        <GraduationCap size={22} className="text-accent" aria-hidden />
+        Formations
+      </h2>
+      {educations.map((education, index) => (
+        <TimelineItem
+          key={education.id}
+          title={
+            education.specialization
+              ? `${education.degree} — ${education.specialization}`
+              : education.degree
+          }
+          meta={[
+            { icon: 'building' as const, label: education.institution },
+            { icon: 'calendar' as const, label: education.period },
+            { icon: 'location' as const, label: education.location },
+          ]}
+          isLatest={index === 0}
+          isLast={index === educations.length - 1}
+        />
+      ))}
     </section>
   );
 }

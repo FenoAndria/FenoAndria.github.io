@@ -19,7 +19,7 @@ export const educationData: Education[] = [
     specialization: 'Base de données et génie logiciel',
     order: 1,
   },
-  {
+/*   {
     id: 'bacc-4-informatique',
     degree: 'Bacc+4 en Informatique',
     period: '2022',
@@ -27,7 +27,7 @@ export const educationData: Education[] = [
     location: 'Antananarivo - Madagascar',
     specialization: 'Base de données et génie logiciel',
     order: 2,
-  },
+  }, */
   {
     id: 'licence-informatique',
     degree: 'Licence en Informatique',
@@ -37,7 +37,7 @@ export const educationData: Education[] = [
     specialization: 'Base de données et génie logiciel',
     order: 3,
   },
-  {
+/*   {
     id: 'dts-informatique',
     degree: 'DTS en Informatique de Gestion',
     period: '2019',
@@ -52,5 +52,5 @@ export const educationData: Education[] = [
     institution: 'Lycée Nanisana',
     location: 'Antananarivo - Madagascar',
     order: 5,
-  },
+  }, */
 ];

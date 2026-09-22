@@ -1,53 +1,40 @@
-'use client';
-
+import { Briefcase } from 'lucide-react';
 import { experiencesData } from '@/data/experiences';
+import TimelineItem from '@/components/ui/TimelineItem';
+
+/**
+ * Section Expériences : timeline verticale des expériences professionnelles.
+ */
 
 export default function Experience() {
+  const experiences = [...experiencesData].sort((a, b) => a.order - b.order);
+
   return (
-    <section id="experience" className="experience min-h-screen flex items-center">
-      <div className="container mx-auto px-6">
-        <div className="section-title">
-          <h2>Expériences</h2>
-        </div>
-
-        <div>
-          {experiencesData.map((exp, index) => (
-            <div
-              key={exp.id}
-              className="experience-item"
-              data-aos="fade-right"
-              data-aos-delay={100 * (index + 1)}
-            >
-              <h4>{exp.title}</h4>
-
-              <h5>
-                <i className="bi bi-calendar3" />
-                {exp.period}
-              </h5>
-
-              {exp.company && (
-                <span className="experience-geo">
-                  <i className="bi bi-geo-alt" />
-                  {exp.company}
-                </span>
-              )}
-
-              <ul className="experience-details">
-                {exp.description.map((desc, idx) => (
-                  <li key={idx}>{desc}</li>
-                ))}
-                {exp.technologies.length > 0 && (
-                  <li>
-                    {exp.technologies.map((tech) => (
-                      <span key={tech} className="experience-stack">{tech}</span>
-                    ))}
-                  </li>
-                )}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
+    <section
+      id="sec-experiences"
+      data-section="experiences"
+      className="rounded-md border border-line bg-card p-6 lg:px-14 lg:py-11"
+    >
+      <h2 className="mb-8 flex items-center gap-2.5 font-heading text-2xl font-semibold text-body">
+        <Briefcase size={22} className="text-accent" aria-hidden />
+        Expériences
+      </h2>
+      {experiences.map((experience, index) => (
+        <TimelineItem
+          key={experience.id}
+          title={experience.title}
+          meta={[
+            ...(experience.company
+              ? [{ icon: 'building' as const, label: experience.company }]
+              : []),
+            { icon: 'calendar' as const, label: experience.period },
+          ]}
+          description={experience.description}
+          chips={experience.technologies}
+          isLatest={index === 0}
+          isLast={index === experiences.length - 1}
+        />
+      ))}
     </section>
   );
 }

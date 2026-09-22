@@ -1,44 +1,23 @@
-'use client';
+import { Mail } from 'lucide-react';
+import ContactBlock from '@/components/ui/ContactBlock';
 
-import { profileData } from '@/data/profile';
+/**
+ * Section Contact : titre + bloc contact (coordonnées, réseaux,
+ * bouton "Envoyer un message").
+ */
 
 export default function Contact() {
   return (
-    <section id="contact" className="contact min-h-screen flex items-center pb-20">
-      <div className="container mx-auto px-6">
-        <div className="section-title">
-          <h2>Contact</h2>
-        </div>
-
-        <div className="card">
-          <div className="p-6">
-            <div className="grid md:grid-cols-3 gap-4">
-              <div data-aos="fade-right" data-aos-delay="1000">
-                <div className="contact-container">
-                  <i className="bi bi-phone" />
-                  <a href={`tel:${profileData.phone}`}>{profileData.phone}</a>
-                </div>
-              </div>
-
-              <div data-aos="fade-right" data-aos-delay="500">
-                <div className="contact-container">
-                  <i className="bi bi-envelope" />
-                  <a href={`mailto:${profileData.email}`}>{profileData.email}</a>
-                </div>
-              </div>
-
-              <div data-aos="fade-right" data-aos-delay="100">
-                <div className="contact-container">
-                  <i className="bi bi-facebook" />
-                  <a href="https://facebook.com/feno.randriamorasata" target="_blank" rel="noopener noreferrer">
-                    Feno Andriamorasata
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section
+      id="sec-contact"
+      data-section="contact"
+      className="flex flex-col items-start gap-6 rounded-md border border-line bg-card p-6 lg:px-14 lg:py-11"
+    >
+      <h2 className="flex items-center gap-2.5 font-heading text-2xl font-semibold text-body">
+        <Mail size={22} className="text-accent" aria-hidden />
+        Contact
+      </h2>
+      <ContactBlock />
     </section>
   );
 }

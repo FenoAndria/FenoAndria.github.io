@@ -1,46 +1,52 @@
 /**
  * Éléments de navigation du portfolio
- * 
- * Ces éléments sont utilisés dans le menu latéral et mobile
+ *
+ * Utilisés par la sidebar, la top-bar et le menu mobile.
+ * `icon` est une clé résolue en icône lucide-react dans components/layout/Nav.tsx.
  */
 
 import type { NavItem } from '@/types';
+import { projectsEnabled } from './projects';
 
-export const navigationItems: NavItem[] = [
+const allNavigationItems: NavItem[] = [
   {
     id: 'about',
-    label: 'A propos de moi',
-    href: '#about',
-    icon: 'bx-user',
+    label: 'À propos de moi',
+    href: '#sec-about',
+    icon: 'user',
   },
   {
-    id: 'experience',
+    id: 'experiences',
     label: 'Expériences',
-    href: '#experience',
-    icon: 'bx-code-block',
+    href: '#sec-experiences',
+    icon: 'briefcase',
   },
   {
     id: 'formations',
     label: 'Formations',
-    href: '#formations',
-    icon: 'bxs-graduation',
+    href: '#sec-formations',
+    icon: 'graduation-cap',
   },
   {
-    id: 'competences',
+    id: 'skills',
     label: 'Compétences',
-    href: '#competences',
-    icon: 'bx-code-alt',
+    href: '#sec-skills',
+    icon: 'code',
   },
   {
-    id: 'realisation',
+    id: 'projects',
     label: 'Projets',
-    href: '#realisation',
-    icon: 'bx-grid-alt',
+    href: '#sec-projects',
+    icon: 'folder',
   },
   {
     id: 'contact',
     label: 'Contact',
-    href: '#contact',
-    icon: 'bx-envelope',
+    href: '#sec-contact',
+    icon: 'mail',
   },
 ];
+
+export const navigationItems: NavItem[] = allNavigationItems.filter(
+  (item) => item.id !== 'projects' || projectsEnabled
+);

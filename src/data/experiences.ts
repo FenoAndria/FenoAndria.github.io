@@ -16,7 +16,7 @@ export const experiencesData: Experience[] = [
     period: '2022 - Aujourd\'hui',
     description: [
       'Contribution à des projets en freelance',
-      'Exemples de projet : application web pour la gestion d\'une entreprise de déménagement, conception et développement d\'un site web d\'un startup, ERP pour une entreprise de consulting, application de suivi des stocks pour une entreprise de commerce, une plateforme de recrutement, application de gestion pédagogique pour un établissement scolaire, ...',
+      'Exemples de projet : application web pour la gestion d\'une entreprise de déménagement, conception et développement d\'un site web d\'un startup, application de suivi des stocks pour une entreprise de commerce, une plateforme de recrutement, application de gestion pédagogique pour un établissement scolaire, ...',
       'Ma mission consiste à répondre aux différentes attentes au niveau backend et/ou frontend. J\'ai participé au développement technique des plateformes web en exposant mes compétences et mes savoir-faire dans ce domaine. Ainsi, je veille aux applications en donnant une attention particulière à des nouvelles fonctionnalités.',
       'J\'ai apporté mes compétences en développement web à la réalisation de différents nouveaux microservices, à la recherche de solutions innovantes tout en faisant une veille technologique sur l\'évolution des outils techniques.',
     ],

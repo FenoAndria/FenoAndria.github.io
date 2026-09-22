@@ -10,8 +10,16 @@
  */
 export interface Profile {
   name: string;
+  /** Nom court affiché dans la sidebar / les en-têtes */
+  shortName: string;
   title: string;
+  /** Titre principal de la section À propos */
+  headline: string;
+  /** Phrase de disponibilité (sidebar, bloc contact) */
+  tagline: string;
   description: string;
+  /** Chips de stack affichés dans À propos */
+  stack: string[];
   age: number;
   phone: string;
   email: string;
@@ -61,7 +69,7 @@ export interface Education {
 /**
  * Catégories de compétences
  */
-export type SkillCategory = 'languages' | 'frameworks' | 'tools';
+export type SkillCategory = 'languages' | 'frameworks' | 'databases' | 'tools';
 
 /**
  * Niveau de compétence (1-5 étoiles)
@@ -90,6 +98,10 @@ export interface Project {
   image: string;
   imageAlt: string;
   technologies: string[];
+  /** Ligne résultat / impact affichée en accent2 ("→ …") */
+  result?: string;
+  /** Méta affichée sous le titre (ex. "Projet personnel · 2023") */
+  meta?: string;
   link?: string;
   github?: string;
   detailsPage?: string; // Slug pour la page de détails
