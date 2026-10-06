@@ -11,6 +11,31 @@ import type { Experience } from '@/types';
 
 export const experiencesData: Experience[] = [
   {
+    id: 'dev-php-prestashop',
+    title: 'Développeur PHP / PrestaShop',
+    company: 'RMT IT Solutions',
+    period: '2025 - 2026',
+    description: [
+      'Développement et évolution de fonctionnalités spécifiques en PHP / PrestaShop.',
+      'Maintenance corrective et évolutive : analyse et résolution de bugs, amélioration et adaptation de fonctionnalités existantes.',
+      'Développement et personnalisation de modules PrestaShop et intégration de services externes via API.',
+      'Gestion et exploitation des données produits, stocks, prix et informations commerciales.',
+      'Développement d\'outils et de traitements spécifiques pour automatiser certaines opérations métier.',
+      'Optimisation des performances front-end et back-end : temps de chargement, ressources CSS/JavaScript, images et traitement des données.',
+      'Optimisation technique SEO : sitemap, robots.txt, URLs à facettes et problématiques d\'indexation.',
+      'Maintenance et évolution d\'une base de code existante en privilégiant les mécanismes d\'extension natifs de PrestaShop.',
+    ],
+    technologies: [
+      'PHP',
+      'MySQL',
+      'JavaScript/jQuery',
+      'REST API',
+      'PrestaShop',
+      'Wordpress',
+    ],
+    order: 1,
+  },
+  {
     id: 'dev-web-freelance',
     title: 'Développeur web',
     period: '2022 - Aujourd\'hui',
@@ -30,8 +55,9 @@ export const experiencesData: Experience[] = [
       'MySQL',
       'MongoDB',
       'Express',
+      'Wordpress'
     ],
-    order: 1,
+    order: 2,
   },
   {
     id: 'dev-integrateur-pev',
@@ -50,7 +76,7 @@ export const experiencesData: Experience[] = [
       'Google sheets',
       'TailwindCss',
     ],
-    order: 2,
+    order: 3,
   },
   {
     id: 'stagiaire-it-hr-services',
@@ -63,7 +89,7 @@ export const experiencesData: Experience[] = [
       'Identification des éventuelles erreurs',
     ],
     technologies: [],
-    order: 3,
+    order: 4,
   },
   {
     id: 'coach-ekaody',
@@ -76,7 +102,7 @@ export const experiencesData: Experience[] = [
       'Organisé par Orange Madagascar et Techzara',
     ],
     technologies: [],
-    order: 4,
+    order: 5,
   },
   {
     id: 'stagiaire-webmaster',
@@ -94,6 +120,6 @@ export const experiencesData: Experience[] = [
       'Wordpress',
       'Google Analytics',
     ],
-    order: 5,
+    order: 6,
   },
 ];

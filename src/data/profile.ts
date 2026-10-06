@@ -13,7 +13,7 @@ export const profileData: Profile = {
   title: 'Développeur web',
   headline: 'Développeur web',
   tagline: 'Ouvert aux opportunités freelance',
-  stack: ['PHP', 'Laravel', 'VueJS', 'MySQL', 'Codeigniter'],
+  stack: ['PHP', 'Laravel', 'VueJS', 'MySQL', 'Codeigniter','Prestashop'],
   description: `Développeur informatique passionné, je m'efforce de créer des applications robustes et évolutives, adaptées à divers environnements technologiques. Avec une approche centrée sur l'efficacité et l'innovation, je m'assure de répondre aux besoins spécifiques des projets tout en garantissant des solutions techniques de pointe et sécurisées.`,
   
   age: 26,

@@ -8,10 +8,18 @@ import SkillCategoryCard from '@/components/ui/SkillCategoryCard';
 import { sectionReveal, fadeUpItem } from '@/lib/motion';
 
 /**
- * Section Compétences : grille 2 colonnes de cartes par catégorie.
+ * Section Compétences : grille de cartes par catégorie.
+ * Desktop : 2 cartes sur la 1re ligne, 3 sur la 2e (grille 6 colonnes),
+ * cartes d'une même ligne à hauteur égale.
  */
 
-const CATEGORIES: SkillCategory[] = ['languages', 'frameworks', 'databases', 'tools'];
+const CATEGORIES: { category: SkillCategory; span: string }[] = [
+  { category: 'languages', span: 'lg:col-span-3' },
+  { category: 'frameworks', span: 'lg:col-span-3' },
+  { category: 'cms', span: 'lg:col-span-2' },
+  { category: 'databases', span: 'lg:col-span-2' },
+  { category: 'tools', span: 'lg:col-span-2' },
+];
 
 export default function Skills() {
   return (
@@ -33,9 +41,9 @@ export default function Skills() {
           <Code size={22} className="text-accent" aria-hidden />
           Compétences
         </motion.h2>
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-          {CATEGORIES.map((category) => (
-            <motion.div key={category} variants={fadeUpItem}>
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-6">
+          {CATEGORIES.map(({ category, span }) => (
+            <motion.div key={category} variants={fadeUpItem} className={span}>
               <SkillCategoryCard
                 title={categoryLabels[category]}
                 skills={getSkillsByCategory(category)}
