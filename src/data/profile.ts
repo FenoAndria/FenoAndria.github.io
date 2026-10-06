@@ -45,7 +45,7 @@ export const profileData: Profile = {
     },
     {
       name: 'WhatsApp',
-      url: 'tel:+261344345815',
+      url: 'https://wa.me/261344345815',
       icon: 'bxl-whatsapp',
     },
   ],
