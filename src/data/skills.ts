@@ -4,6 +4,7 @@
  * Organisation :
  * - languages : Langages de programmation
  * - frameworks : Frameworks et librairies
+ * - cms : CMS et plateformes e-commerce
  * - tools : Outils et technologies
  * 
  * Niveau (level) : 1 à 5 étoiles
@@ -112,6 +113,24 @@ export const skillsData: Skill[] = [
     order: 7,
   },
   
+  // ========== CMS ==========
+  {
+    id: 'wordpress',
+    name: 'WordPress',
+    category: 'cms',
+    level: 3,
+    icon: '/images/stack/wordpress.svg',
+    order: 1,
+  },
+  {
+    id: 'prestashop',
+    name: 'PrestaShop',
+    category: 'cms',
+    level: 4,
+    icon: '/images/stack/prestashop.svg',
+    order: 2,
+  },
+
   // ========== BASES DE DONNÉES ==========
   {
     id: 'mysql',
@@ -164,6 +183,7 @@ export const getSkillsByCategory = (category: Skill['category']) => {
 export const categoryLabels = {
   languages: 'Langages',
   frameworks: 'Frameworks & librairies',
+  cms: 'CMS',
   databases: 'Bases de données',
   tools: 'Outils',
 } as const;

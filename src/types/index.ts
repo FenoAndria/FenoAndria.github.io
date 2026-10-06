@@ -69,7 +69,7 @@ export interface Education {
 /**
  * Catégories de compétences
  */
-export type SkillCategory = 'languages' | 'frameworks' | 'databases' | 'tools';
+export type SkillCategory = 'languages' | 'frameworks' | 'cms' | 'databases' | 'tools';
 
 /**
  * Niveau de compétence (1-5 étoiles)

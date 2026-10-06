@@ -30,18 +30,24 @@ export function useActiveSection(initial = 'about'): string {
     const updateActive = () => {
       ticking = false;
 
+      const atBottom =
+        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+
       let best: HTMLElement | null = null;
       let bestRatio = -1;
       for (const section of sections) {
         const rect = section.getBoundingClientRect();
         const visible = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
         const ratio = rect.height > 0 ? Math.max(0, visible) / rect.height : 0;
-        // > strict plutôt que >= : à égalité (deux sections 100% visibles en
-        // même temps, ex. une section courte tout juste rejointe et la
-        // suivante qui suit immédiatement), on garde celle trouvée en
-        // premier — la plus haute à l'écran, donc celle qu'on vient
-        // d'atteindre — plutôt que de basculer sur la suivante.
-        if (ratio > bestRatio) {
+        // À égalité (deux sections 100% visibles en même temps, ex. une
+        // section courte tout juste rejointe et la suivante qui suit
+        // immédiatement), on garde en principe celle trouvée en premier —
+        // la plus haute à l'écran, donc celle qu'on vient d'atteindre.
+        // Exception en bas de page : le scroll est épuisé, la dernière
+        // section ne pourrait jamais l'emporter (ex. Compétences et Contact
+        // entièrement visibles sur un grand écran) — on tranche alors en
+        // faveur de la plus basse.
+        if (ratio > bestRatio || (atBottom && ratio === bestRatio)) {
           bestRatio = ratio;
           best = section;
         }
