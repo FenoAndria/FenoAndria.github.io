@@ -134,7 +134,11 @@ export default function RootLayout({
       '@type': 'PostalAddress',
       addressLocality: profileData.location,
     },
-    sameAs: profileData.social.map((social) => social.url).filter((url) => url.startsWith('http')),
+    // Profils publics uniquement : WhatsApp est un moyen de contact, pas un profil
+    sameAs: profileData.social
+      .filter((social) => social.name !== 'WhatsApp')
+      .map((social) => social.url)
+      .filter((url) => url.startsWith('http')),
   };
 
   return (
