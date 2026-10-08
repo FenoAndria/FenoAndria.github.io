@@ -14,79 +14,99 @@ import type { Project } from '@/types';
  * Active/désactive la section Projets sur tout le site
  * (sections, navigation, structures alternatives).
  */
-export const projectsEnabled = false;
+export const projectsEnabled = true;
 
 export const projectsData: Project[] = [
   {
     id: 'cv-builder',
-    title: 'CV Builder',
+    title: 'Tailored CV Builder',
     description: 'Application web permettant de créer et personnaliser son CV de manière interactive avec Vue.js',
-    image: '/images/projects/CV-Builder.jpg',
-    imageAlt: 'Aperçu de l\'application CV Builder',
+    image: '/images/projects/cv-builder/07-personnaliser-sombre.png',
+    imageAlt: 'Tableau de bord de l\'application listant plusieurs CV',
     technologies: ['VueJS', 'JavaScript', 'TailwindCSS'],
     meta: 'Projet personnel',
-    github: 'https://github.com/FenoAndria/cv-builder-vuejs',
+    link: 'https://tailored-resume-builder.netlify.app/',
+    screenshots: [
+      {
+        src: '/images/projects/cv-builder/01-mes-cv.png',
+        alt: 'Tableau de bord listant plusieurs CV avec leur aperçu',
+        caption: 'Mes CV : plusieurs versions du CV, chacune avec son modèle. Les données restent dans le navigateur, sans compte ni serveur.',
+      },
+      {
+        src: '/images/projects/cv-builder/02-etat-vide.png',
+        alt: 'Écran d\'accueil sans CV avec les actions de démarrage',
+        caption: 'Premier lancement : créer un CV, partir d\'un exemple ou importer un fichier JSON.',
+      },
+      {
+        src: '/images/projects/cv-builder/03-editeur-experiences.png',
+        alt: 'Éditeur de la section Expériences avec aperçu A4 en direct',
+        caption: 'Éditeur par sections avec aperçu A4 en temps réel, sections réordonnables et masquables, description en texte riche.',
+      },
+      {
+        src: '/images/projects/cv-builder/04-editeur-profil.png',
+        alt: 'Formulaire du profil : photo, identité, accroche et coordonnées',
+        caption: 'Profil : photo locale, accroche avec compteur de caractères et coordonnées.',
+      },
+      {
+        src: '/images/projects/cv-builder/05-editeur-competences-sombre.png',
+        alt: 'Éditeur des compétences en thème sombre avec niveaux sur 5',
+        caption: 'Compétences avec niveaux, en thème sombre. L\'aperçu signale quand le CV déborde sur une 2e page.',
+      },
+      {
+        src: '/images/projects/cv-builder/06-personnaliser.png',
+        alt: 'Panneau de personnalisation : modèle, couleur, police et densité',
+        caption: 'Personnalisation : modèle, couleur d\'accent, police et densité, appliqués instantanément.',
+      },
+      {
+        src: '/images/projects/cv-builder/07-personnaliser-sombre.png',
+        alt: 'Panneau de personnalisation en thème sombre',
+        caption: 'Personnalisation en thème sombre.',
+      },
+      {
+        src: '/images/projects/cv-builder/08-apercu-deux-pages.png',
+        alt: 'Aperçu d\'un CV sur deux pages A4',
+        caption: 'Pagination A4 automatique, avec en-tête répété sur la page 2.',
+      },
+      {
+        src: '/images/projects/cv-builder/09-mobile-edition.png',
+        alt: 'Édition d\'une expérience sur mobile',
+        caption: 'Version mobile : édition par onglets de sections.',
+      },
+      {
+        src: '/images/projects/cv-builder/10-mobile-apercu.png',
+        alt: 'Aperçu du CV sur mobile',
+        caption: 'Version mobile : aperçu du CV.',
+      },
+      {
+        src: '/images/projects/cv-builder/11-mobile-style.png',
+        alt: 'Réglages de style sur mobile',
+        caption: 'Version mobile : réglages de style.',
+      },
+      {
+        src: '/images/projects/cv-builder/12-mobile-mes-cv.png',
+        alt: 'Liste des CV sur mobile',
+        caption: 'Version mobile : liste des CV.',
+      },
+      {
+        src: '/images/projects/cv-builder/13-modele-classique.png',
+        alt: 'CV exporté avec le modèle Classique',
+        caption: 'Modèle Classique.',
+      },
+      {
+        src: '/images/projects/cv-builder/14-modele-moderne.png',
+        alt: 'CV exporté avec le modèle Moderne',
+        caption: 'Modèle Moderne.',
+      },
+      {
+        src: '/images/projects/cv-builder/15-modele-creatif.png',
+        alt: 'CV exporté avec le modèle Créatif',
+        caption: 'Modèle Créatif.',
+      },
+    ],
     featured: true,
     order: 1,
   },
-  // Projets commentés dans le HTML original - à activer si nécessaire
-  /*
-  {
-    id: 'repeater-component',
-    title: 'Repeater component',
-    description: 'Composant réutilisable pour la gestion de champs répétables dans les formulaires',
-    image: '/images/projects/Repeater-Component.jpg',
-    imageAlt: 'Aperçu du composant Repeater',
-    technologies: ['JavaScript', 'HTML', 'CSS'],
-    detailsPage: '/projets/repeater',
-    featured: false,
-    order: 2,
-  },
-  {
-    id: 'gestion-recrutement',
-    title: 'Gestion de recrutement',
-    description: 'Plateforme complète de gestion des processus de recrutement',
-    image: '/images/projects/RecruitmentManagment.JPG',
-    imageAlt: 'Interface de gestion de recrutement',
-    technologies: ['PHP', 'Laravel', 'MySQL', 'Bootstrap'],
-    detailsPage: '/projets/gestion-recrutement',
-    featured: false,
-    order: 3,
-  },
-  {
-    id: 'fokontany-search',
-    title: 'Fokontany Search',
-    description: 'Application de recherche et localisation des fokontany à Madagascar',
-    image: '/images/projects/Fkt-Search.jpg',
-    imageAlt: 'Interface de recherche Fokontany',
-    technologies: ['JavaScript', 'API', 'Leaflet'],
-    detailsPage: '/projets/fokontany-search',
-    featured: false,
-    order: 4,
-  },
-  {
-    id: 'panier-ecommerce',
-    title: 'Panier e-commerce',
-    description: 'Système de panier d\'achat pour site e-commerce avec gestion des stocks',
-    image: '/images/projects/Panier-ecommerce.jpg',
-    imageAlt: 'Interface du panier e-commerce',
-    technologies: ['PHP', 'JavaScript', 'MySQL'],
-    detailsPage: '/projets/panier-e-commerce',
-    featured: false,
-    order: 5,
-  },
-  {
-    id: 'php-pattern',
-    title: 'PHP Pattern',
-    description: 'Implémentation de design patterns en PHP',
-    image: '/images/projects/php-pattern.jpg',
-    imageAlt: 'Exemples de patterns PHP',
-    technologies: ['PHP', 'OOP'],
-    detailsPage: '/projets/php-pattern',
-    featured: false,
-    order: 6,
-  },
-  */
+
 ];
 
 /**
