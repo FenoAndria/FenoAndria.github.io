@@ -7,8 +7,7 @@ import ProjectCard from '@/components/ui/ProjectCard';
 import { sectionReveal, fadeUpItem } from '@/lib/motion';
 
 /**
- * Section Projets : grille 2 colonnes de cartes projet
- * + emplacement "Nouveau projet" en pointillés.
+ * Section Projets : grille 2 colonnes de cartes projet.
  */
 
 export default function Projects() {
@@ -39,13 +38,6 @@ export default function Projects() {
               <ProjectCard project={project} />
             </motion.div>
           ))}
-          <motion.div
-            variants={fadeUpItem}
-            className="flex min-h-[140px] flex-col items-center justify-center gap-2 rounded-md border border-dashed border-line lg:min-h-[340px]"
-          >
-            <div className="text-[28px] text-muted">+</div>
-            <div className="text-[13px] text-muted">Nouveau projet</div>
-          </motion.div>
         </div>
       </motion.div>
     </section>

@@ -89,6 +89,16 @@ export interface Skill {
 }
 
 /**
+ * Capture d'écran d'un projet (galerie de présentation)
+ */
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+  /** Légende affichée sous la capture dans la galerie */
+  caption?: string;
+}
+
+/**
  * Projet réalisé
  */
 export interface Project {
@@ -102,8 +112,11 @@ export interface Project {
   result?: string;
   /** Méta affichée sous le titre (ex. "Projet personnel · 2023") */
   meta?: string;
+  /** URL du projet en ligne (démo / production) */
   link?: string;
   github?: string;
+  /** Captures présentées dans la galerie modale ("Aperçu") */
+  screenshots?: ProjectScreenshot[];
   detailsPage?: string; // Slug pour la page de détails
   featured: boolean; // Projet mis en avant
   order: number;
