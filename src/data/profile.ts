@@ -40,7 +40,7 @@ export const profileData: Profile = {
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/fenomanjato-andriamorasata-29963125b',
+      url: 'https://linkedin.com/in/feno-andriamorasata-29963125b',
       icon: 'bxl-linkedin',
     },
     {
