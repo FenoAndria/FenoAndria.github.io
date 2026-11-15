@@ -16,8 +16,12 @@ import {
   SiMysql,
   SiMongodb,
   SiGit,
-  SiTrello,
+  SiNodedotjs,
+  SiGooglesearchconsole,
+  SiGoogleanalytics,
+  SiLighthouse,
 } from 'react-icons/si';
+import { TbApi } from 'react-icons/tb';
 
 /**
  * Badge compact techno : logo 16×16 couleur de marque + libellé 11px.
@@ -44,7 +48,11 @@ const BRAND_ICONS: Record<string, { Icon: IconType; color: string }> = {
   mysql: { Icon: SiMysql, color: '#4479A1' },
   mongodb: { Icon: SiMongodb, color: '#47A248' },
   git: { Icon: SiGit, color: '#F05032' },
-  trello: { Icon: SiTrello, color: '#0079BF' },
+  nodejs: { Icon: SiNodedotjs, color: '#5FA04E' },
+  'api-rest': { Icon: TbApi, color: 'var(--accent-color)' },
+  'search-console': { Icon: SiGooglesearchconsole, color: '#458CF5' },
+  'google-analytics': { Icon: SiGoogleanalytics, color: '#E37400' },
+  lighthouse: { Icon: SiLighthouse, color: '#F44B21' },
 };
 
 interface SkillBadgeProps {

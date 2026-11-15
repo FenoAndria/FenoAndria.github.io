@@ -43,7 +43,7 @@ FenoAndria.github.io/
 │       └── deploy.yml          # Workflow de déploiement automatique
 ├── public/
 │   ├── images/                 # Images du portfolio
-│   └── CV - Fenomanjato.pdf    # CV téléchargeable
+│   └── cv-feno-andriamorasata.pdf # CV téléchargeable
 ├── src/
 │   ├── app/                    # Pages Next.js (App Router)
 │   │   ├── layout.tsx          # Layout racine (fonts, data-theme, data-layout)

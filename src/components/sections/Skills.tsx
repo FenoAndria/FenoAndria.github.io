@@ -9,16 +9,18 @@ import { sectionReveal, fadeUpItem } from '@/lib/motion';
 
 /**
  * Section Compétences : grille de cartes par catégorie.
- * Desktop : 2 cartes sur la 1re ligne, 3 sur la 2e (grille 6 colonnes),
- * cartes d'une même ligne à hauteur égale.
+ * Desktop : 2 cartes sur les 2 premières lignes, 3 sur la dernière
+ * (grille 6 colonnes), cartes d'une même ligne à hauteur égale.
  */
 
 const CATEGORIES: { category: SkillCategory; span: string }[] = [
   { category: 'languages', span: 'lg:col-span-3' },
-  { category: 'frameworks', span: 'lg:col-span-3' },
-  { category: 'cms', span: 'lg:col-span-2' },
+  { category: 'backend', span: 'lg:col-span-3' },
+  { category: 'frontend', span: 'lg:col-span-3' },
+  { category: 'cms', span: 'lg:col-span-3' },
   { category: 'databases', span: 'lg:col-span-2' },
   { category: 'tools', span: 'lg:col-span-2' },
+  { category: 'seo', span: 'lg:col-span-2' },
 ];
 
 export default function Skills() {

@@ -1,8 +1,12 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 import { profileData } from '@/data/profile';
 
 /**
  * Portrait avec bordure accent 40% et coins arrondis.
+ *
+ * <img> natif plutôt que next/image : avec l'export statique
+ * (images.unoptimized), next/image ne produit pas de srcset — ici le
+ * navigateur choisit la variante pré-réduite adaptée à la densité d'écran.
  */
 
 interface PortraitProps {
@@ -29,13 +33,15 @@ export default function Portrait({
         borderColor: 'color-mix(in srgb, var(--accent-color) 40%, transparent)',
       }}
     >
-      <Image
+      <img
         src={profileData.image}
-        alt={profileData.imageAlt}
-        fill
-        className="object-cover"
+        srcSet={profileData.imageSrcSet}
         sizes={typeof width === 'number' ? `${width}px` : '200px'}
-        priority={priority}
+        alt={profileData.imageAlt}
+        className="absolute inset-0 h-full w-full object-cover"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : 'auto'}
+        decoding="async"
       />
     </div>
   );

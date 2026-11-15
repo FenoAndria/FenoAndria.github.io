@@ -25,6 +25,8 @@ export interface Profile {
   email: string;
   location: string;
   image: string;
+  /** Variantes pré-réduites du portrait (srcset, descripteurs en w) */
+  imageSrcSet?: string;
   imageAlt: string;
   cvUrl: string;
   social: SocialLink[];
@@ -69,7 +71,14 @@ export interface Education {
 /**
  * Catégories de compétences
  */
-export type SkillCategory = 'languages' | 'frameworks' | 'cms' | 'databases' | 'tools';
+export type SkillCategory =
+  | 'languages'
+  | 'backend'
+  | 'frontend'
+  | 'cms'
+  | 'databases'
+  | 'tools'
+  | 'seo';
 
 /**
  * Niveau de compétence (1-5 étoiles)
@@ -84,7 +93,7 @@ export interface Skill {
   name: string;
   category: SkillCategory;
   level: SkillLevel;
-  icon: string; // Chemin vers l'image du logo
+  icon?: string; // Chemin vers l'image du logo (sinon : registre de SkillBadge)
   order: number;
 }
 

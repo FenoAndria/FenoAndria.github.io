@@ -12,7 +12,7 @@ import type { Education } from '@/types';
 export const educationData: Education[] = [
   {
     id: 'master-informatique',
-    degree: '5ème année en Informatique',
+    degree: 'Master 2 en Informatique',
     period: '2023 - 2024',
     institution: 'CNTEMAD',
     location: 'Antananarivo - Madagascar',

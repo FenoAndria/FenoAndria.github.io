@@ -12,10 +12,18 @@ import { getLayout } from '@/lib/layout';
 import { profileData } from '@/data/profile';
 
 const SITE_URL = 'https://fenoandria.github.io';
+const SITE_TITLE = 'Feno Andriamorasata - Développeur Web Fullstack';
+const SITE_DESCRIPTION =
+  'Portfolio de Feno Andriamorasata, développeur web fullstack à Antananarivo : PHP, Laravel, CodeIgniter, PrestaShop, Vue.js et MySQL. Découvrez mes expériences, projets et compétences.';
 
 /**
  * Polices Google chargées via next/font — exposées en variables CSS,
  * consommées par --font-heading / --font-body selon le thème (globals.css).
+ *
+ * Seules Inter et Space Grotesk (thème principal E) sont préchargées ;
+ * les autres restent disponibles pour les thèmes A–D mais ne sont
+ * téléchargées que si le thème actif les utilise. (next/font exige des
+ * options littérales : pas de préchargement conditionnel au thème.)
  */
 const inter = Inter({
   subsets: ['latin'],
@@ -29,6 +37,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
   weight: ['400', '500', '600', '700'],
   variable: '--font-jetbrains-mono',
+  preload: false,
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -44,6 +53,7 @@ const fraunces = Fraunces({
   weight: 'variable',
   axes: ['opsz'],
   variable: '--font-fraunces',
+  preload: false,
 });
 
 const chakraPetch = Chakra_Petch({
@@ -51,6 +61,7 @@ const chakraPetch = Chakra_Petch({
   display: 'swap',
   weight: ['400', '500', '600', '700'],
   variable: '--font-chakra-petch',
+  preload: false,
 });
 
 const fontVariables = [
@@ -67,20 +78,41 @@ const fontVariables = [
  */
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Feno Andriamorasata - Développeur Web',
-  description: 'Portfolio professionnel de Feno Andriamorasata, développeur web spécialisé en Laravel, Vue.js, React et Next.js. Découvrez mes projets et compétences.',
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   keywords: [
     'Feno Andriamorasata',
-    'Développeur Web',
+    'Développeur Web Fullstack',
     'Portfolio',
+    'PHP',
     'Laravel',
+    'CodeIgniter',
+    'PrestaShop',
     'Vue.js',
-    'React',
-    'Next.js',
+    'MySQL',
     'Madagascar',
     'Antananarivo',
     'Full Stack Developer',
   ],
+  alternates: {
+    canonical: '/',
+  },
+
+  // Aperçu des liens partagés (LinkedIn, WhatsApp, Facebook…) —
+  // image : src/app/opengraph-image.png (et twitter-image.png)
+  openGraph: {
+    type: 'profile',
+    locale: 'fr_FR',
+    url: SITE_URL,
+    siteName: 'Feno Andriamorasata',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
   authors: [{ name: 'Feno Andriamorasata', url: 'https://github.com/FenoAndria' }],
   creator: 'Feno Andriamorasata',
   publisher: 'Feno Andriamorasata',

@@ -30,32 +30,8 @@ const nextConfig = {
   // Optimisations de performance
   swcMinify: true,
 
-  // Headers de sécurité
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          {
-            key: "X-DNS-Prefetch-Control",
-            value: "on",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "origin-when-cross-origin",
-          },
-        ],
-      },
-    ];
-  },
+  // Pas de headers() : ignoré avec output "export", GitHub Pages ne
+  // permet pas de définir des en-têtes HTTP personnalisés.
 };
 
 module.exports = nextConfig;
