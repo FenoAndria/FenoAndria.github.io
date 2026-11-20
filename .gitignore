@@ -45,3 +45,9 @@ next-env.d.ts
 
 # OS
 Thumbs.db
+# Fichiers du skill impeccable (design, hors site)
+.claude/
+.impeccable/
+DESIGN.md
+PRODUCT.md
+skills-lock.json

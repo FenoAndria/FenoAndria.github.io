@@ -48,7 +48,7 @@ export default function TimelineItem({
         {!isLast && <div className="mt-1 w-[2px] flex-1 bg-line" />}
       </div>
       <div className={`group flex-1 ${isLast ? '' : 'pb-8'}`}>
-        <h3 className="font-heading text-base font-semibold text-body transition-colors duration-200 group-hover:text-accent">
+        <h3 className="font-heading text-[16px] font-semibold leading-6 text-body transition-colors duration-200 group-hover:text-accent">
           {title}
         </h3>
         <div className="mt-1.5 flex flex-col gap-1 text-[13px] text-muted">

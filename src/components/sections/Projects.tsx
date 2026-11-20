@@ -8,6 +8,8 @@ import { sectionReveal, fadeUpItem } from '@/lib/motion';
 
 /**
  * Section Projets : grille 2 colonnes de cartes projet.
+ * Chaque carte occupe 6 lignes partagées en subgrid (voir ProjectCard) :
+ * titres, descriptions, technos et actions s'alignent d'une carte à l'autre.
  */
 
 export default function Projects() {
@@ -34,7 +36,11 @@ export default function Projects() {
         </motion.h2>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {projects.map((project) => (
-            <motion.div key={project.id} variants={fadeUpItem}>
+            <motion.div
+              key={project.id}
+              variants={fadeUpItem}
+              className="row-[span_6] grid grid-rows-subgrid gap-y-0"
+            >
               <ProjectCard project={project} />
             </motion.div>
           ))}

@@ -117,7 +117,7 @@ export interface Project {
   image: string;
   imageAlt: string;
   technologies: string[];
-  /** Ligne résultat / impact affichée en accent2 ("→ …") */
+  /** Fiche projet (modal) : résultat / impact concret, 1 à 2 phrases */
   result?: string;
   /** Méta affichée sous le titre (ex. "Projet personnel · 2023") */
   meta?: string;
@@ -126,6 +126,12 @@ export interface Project {
   github?: string;
   /** Captures présentées dans la galerie modale ("Aperçu") */
   screenshots?: ProjectScreenshot[];
+  /** Fiche projet (modal) : objectif du projet, 1 à 2 paragraphes courts */
+  overview?: string[];
+  /** Fiche projet (modal) : mon rôle dans le projet, 1 à 2 phrases */
+  role?: string;
+  /** Fiche projet (modal) : 3 à 5 points techniques (décisions, pas une liste de technos) */
+  highlights?: string[];
   detailsPage?: string; // Slug pour la page de détails
   featured: boolean; // Projet mis en avant
   order: number;

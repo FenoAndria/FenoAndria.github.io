@@ -2,16 +2,18 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ExternalLink, Images } from 'lucide-react';
+import { ExternalLink, FileText, Images } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
 import type { Project } from '@/types';
 import ProjectGallery from './ProjectGallery';
 
 /**
  * Carte projet : capture 170px (130px mobile), titre, méta,
- * description, ligne résultat accent2, chips techno et actions :
- * - Aperçu : galerie modale des captures (si `screenshots`) — la vignette
- *   ouvre aussi la galerie ;
+ * description, chips techno et actions :
+ * - Détails : fiche projet modale (objectif, rôle, points techniques,
+ *   résultat, captures) si `overview` / `role` / `highlights` / `result` ;
+ *   sinon Aperçu : galerie des captures.
+ *   La vignette ouvre aussi le modal ;
  * - En ligne : projet déployé (`link`) ;
  * - Code : dépôt (`github`).
  * Au survol : légère élévation avec ombre douce et bordure accent.
@@ -26,6 +28,11 @@ const actionClass =
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const hasGallery = (project.screenshots?.length ?? 0) > 0;
+  const hasDetails =
+    (project.overview?.length ?? 0) + (project.highlights?.length ?? 0) > 0 ||
+    Boolean(project.role) ||
+    Boolean(project.result);
+  const hasModal = hasGallery || hasDetails;
   const [galleryOpen, setGalleryOpen] = useState(false);
 
   const thumbnail = (
@@ -40,12 +47,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <>
-      <article className="group overflow-hidden rounded-md border border-line bg-base transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_16px_32px_rgba(0,0,0,0.14)] motion-reduce:hover:translate-y-0">
-        {hasGallery ? (
+      {/* 6 lignes en subgrid (vignette, titre, méta, description, technos,
+          actions) : chaque ligne a la même hauteur sur toutes les cartes
+          d'une rangée. Les lignes vides sont rendues quand même pour garder
+          l'alignement. Doit rester synchronisé avec Projects.tsx. */}
+      <article className="group row-[span_6] grid grid-rows-subgrid gap-y-0 overflow-hidden rounded-md border border-line bg-base transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_16px_32px_rgba(0,0,0,0.14)] motion-reduce:hover:translate-y-0">
+        {hasModal ? (
           <button
             type="button"
             onClick={() => setGalleryOpen(true)}
-            aria-label={`Voir les captures de ${project.title}`}
+            aria-label={`${hasDetails ? 'Voir la fiche' : 'Voir les captures'} de ${project.title}`}
             className="relative block h-[130px] w-full cursor-zoom-in overflow-hidden lg:h-[170px]"
           >
             {thumbnail}
@@ -53,14 +64,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         ) : (
           <div className="relative h-[130px] overflow-hidden lg:h-[170px]">{thumbnail}</div>
         )}
-        <div className="p-[22px]">
-          <h3 className="font-heading text-base font-semibold text-body">{project.title}</h3>
+        <h3 className="px-[22px] pt-[22px] font-heading text-[16px] font-semibold leading-6 text-accent">
+          {project.title}
+        </h3>
+        <div className="px-[22px]">
           {project.meta && <div className="mt-1 text-xs text-muted">{project.meta}</div>}
-          <p className="mt-2.5 text-[13px] leading-[1.6] text-muted">{project.description}</p>
-          {project.result && (
-            <div className="mt-2.5 text-[11px] text-accent2">→ {project.result}</div>
-          )}
-          <div className="mt-3 flex flex-wrap gap-1.5">
+        </div>
+        <p className="px-[22px] pt-2.5 text-[13px] leading-[1.6] text-muted">{project.description}</p>
+        <div className="px-[22px] pt-3">
+          <div className="flex flex-wrap gap-1.5">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
@@ -70,11 +82,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               </span>
             ))}
           </div>
-          {(hasGallery || project.link || project.github) && (
+        </div>
+        <div className="px-[22px] pb-[22px]">
+          {(hasModal || project.link || project.github) && (
             <div className="mt-3.5 flex flex-wrap items-center gap-x-5 gap-y-2">
-              {hasGallery && (
+              {hasModal && (
                 <button type="button" onClick={() => setGalleryOpen(true)} className={actionClass}>
-                  <Images size={14} aria-hidden /> Aperçu
+                  {hasDetails ? (
+                    <>
+                      <FileText size={14} aria-hidden /> Détails
+                    </>
+                  ) : (
+                    <>
+                      <Images size={14} aria-hidden /> Aperçu
+                    </>
+                  )}
                 </button>
               )}
               {project.link && (
@@ -91,7 +113,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
       </article>
-      {hasGallery && (
+      {hasModal && (
         <ProjectGallery project={project} open={galleryOpen} onClose={() => setGalleryOpen(false)} />
       )}
     </>

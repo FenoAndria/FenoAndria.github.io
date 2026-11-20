@@ -38,7 +38,7 @@ export default function Topbar() {
   return (
     <div ref={rootRef} className="sticky top-0 z-40 border-b border-line bg-card">
       <div className="relative mx-auto flex max-w-[1120px] items-center justify-between gap-4 px-4 py-3.5 lg:px-7">
-        <div className="font-heading text-base font-semibold text-body">
+        <div className="font-heading text-[16px] font-semibold leading-6 text-body">
           {profileData.shortName}
         </div>
 
