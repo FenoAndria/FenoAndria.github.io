@@ -21,7 +21,7 @@ export const projectsData: Project[] = [
     id: 'suivi-budgetaire',
     title: 'Suivi budgétaire et autorisations de paiement',
     description: 'Application de suivi budgétaire et de validation des paiements pour le siège et sept antennes d\'un programme international mené avec une association locale.',
-    image: '/images/suivi-budgetaire/01-tableau-de-bord-siege.webp',
+    image: '/images/projects/suivi-budgetaire/01-tableau-de-bord-siege.webp',
     imageAlt: 'Tableau de bord du projet : budget, réalisé, taux d\'exécution et disponible',
     technologies: ['Laravel', 'Vue.js', 'TypeScript', 'Inertia.js', 'MySQL', 'Tailwind CSS'],
     meta: 'Projet client',
@@ -39,75 +39,75 @@ export const projectsData: Project[] = [
     ],
     screenshots: [
       {
-        src: '/images/suivi-budgetaire/01-tableau-de-bord-siege.webp',
+        src: '/images/projects/suivi-budgetaire/01-tableau-de-bord-siege.webp',
         alt: 'Tableau de bord du projet avec indicateurs, exécution par Output et courbe du réalisé',
         caption: 'Tableau de bord du siège : budget, réalisé et disponible du projet, exécution par Output, réalisé cumulé face au budget et codes en alerte.',
       },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/02-carte-de-chaleur.webp',
+      //   alt: 'Carte de chaleur du taux d\'exécution par code d\'activité et par antenne',
+      //   caption: 'Carte de chaleur codes × antennes : les dépassements et les codes proches du plafond ressortent d\'un coup d\'œil.',
+      // },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/03-situation-par-code.webp',
+      //   alt: 'Tableau de la situation budgétaire par code d\'activité, groupé par Output',
+      //   caption: 'Situation par code : budget, réalisé, en attente et disponible, en ariary ou en livres, filtrable par période, antenne et Output, exportable en Excel.',
+      // },
       {
-        src: '/images/suivi-budgetaire/02-carte-de-chaleur.webp',
-        alt: 'Carte de chaleur du taux d\'exécution par code d\'activité et par antenne',
-        caption: 'Carte de chaleur codes × antennes : les dépassements et les codes proches du plafond ressortent d\'un coup d\'œil.',
-      },
-      {
-        src: '/images/suivi-budgetaire/03-situation-par-code.webp',
-        alt: 'Tableau de la situation budgétaire par code d\'activité, groupé par Output',
-        caption: 'Situation par code : budget, réalisé, en attente et disponible, en ariary ou en livres, filtrable par période, antenne et Output, exportable en Excel.',
-      },
-      {
-        src: '/images/suivi-budgetaire/04-saisie-ap-jauges.webp',
+        src: '/images/projects/suivi-budgetaire/04-saisie-ap-jauges.webp',
         alt: 'Formulaire de saisie d\'une autorisation de paiement avec deux jauges budgétaires',
         caption: 'Saisie d\'une autorisation de paiement : deux jauges calculées par le serveur pendant la frappe (budget du projet et de l\'antenne). Un dépassement est signalé, jamais bloqué.',
       },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/06-liste-detail-ap.webp',
+      //   alt: 'Liste des autorisations de paiement avec le panneau de détail ouvert',
+      //   caption: 'Liste des autorisations de paiement et panneau de détail : étapes du circuit, historique complet, modification tracée par le responsable financier.',
+      // },
       {
-        src: '/images/suivi-budgetaire/06-liste-detail-ap.webp',
-        alt: 'Liste des autorisations de paiement avec le panneau de détail ouvert',
-        caption: 'Liste des autorisations de paiement et panneau de détail : étapes du circuit, historique complet, modification tracée par le responsable financier.',
-      },
-      {
-        src: '/images/suivi-budgetaire/07-a-traiter.webp',
+        src: '/images/projects/suivi-budgetaire/07-a-traiter.webp',
         alt: 'File des autorisations de paiement à valider avec le contrôle budgétaire',
         caption: 'File « À traiter » : chaque valideur ne voit que ce qui attend sa décision, avec le contrôle budgétaire sous les yeux.',
       },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/08-budget-par-antenne.webp',
+      //   alt: 'Grille de répartition du budget par code et par antenne',
+      //   caption: 'Budget par antenne : grille éditable au clavier, collage depuis Excel, historique de chaque cellule.',
+      // },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/09-import-excel.webp',
+      //   alt: 'Écran d\'import Excel avec deux lignes en erreur',
+      //   caption: 'Import des autorisations de paiement depuis Excel : aperçu ligne par ligne avant tout enregistrement, import tout ou rien.',
+      // },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/10-tableau-de-bord-sombre.webp',
+      //   alt: 'Tableau de bord en thème sombre',
+      //   caption: 'Tableau de bord en thème sombre.',
+      // },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/11-mobile-tableau-de-bord.webp',
+      //   alt: 'Tableau de bord d\'une antenne sur mobile',
+      //   caption: 'Version mobile : tableau de bord d\'une antenne.',
+      // },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/12-mobile-liste-ap.webp',
+      //   alt: 'Liste des autorisations de paiement sur mobile',
+      //   caption: 'Version mobile : liste des autorisations de paiement, filtrable par statut.',
+      // },
       {
-        src: '/images/suivi-budgetaire/08-budget-par-antenne.webp',
-        alt: 'Grille de répartition du budget par code et par antenne',
-        caption: 'Budget par antenne : grille éditable au clavier, collage depuis Excel, historique de chaque cellule.',
-      },
-      {
-        src: '/images/suivi-budgetaire/09-import-excel.webp',
-        alt: 'Écran d\'import Excel avec deux lignes en erreur',
-        caption: 'Import des autorisations de paiement depuis Excel : aperçu ligne par ligne avant tout enregistrement, import tout ou rien.',
-      },
-      {
-        src: '/images/suivi-budgetaire/10-tableau-de-bord-sombre.webp',
-        alt: 'Tableau de bord en thème sombre',
-        caption: 'Tableau de bord en thème sombre.',
-      },
-      {
-        src: '/images/suivi-budgetaire/11-mobile-tableau-de-bord.webp',
-        alt: 'Tableau de bord d\'une antenne sur mobile',
-        caption: 'Version mobile : tableau de bord d\'une antenne.',
-      },
-      {
-        src: '/images/suivi-budgetaire/12-mobile-liste-ap.webp',
-        alt: 'Liste des autorisations de paiement sur mobile',
-        caption: 'Version mobile : liste des autorisations de paiement, filtrable par statut.',
-      },
-      {
-        src: '/images/suivi-budgetaire/13-mobile-saisie-ap.webp',
+        src: '/images/projects/suivi-budgetaire/13-mobile-saisie-ap.webp',
         alt: 'Saisie d\'une autorisation de paiement sur mobile',
         caption: 'Version mobile : saisie d\'une autorisation de paiement.',
       },
-      {
-        src: '/images/suivi-budgetaire/14-mobile-detail-ap.webp',
-        alt: 'Détail d\'une autorisation de paiement sur mobile',
-        caption: 'Version mobile : détail, étapes du circuit et actions.',
-      },
-      {
-        src: '/images/suivi-budgetaire/15-mobile-menu.webp',
-        alt: 'Menu de navigation ouvert sur mobile',
-        caption: 'Version mobile : menu de navigation.',
-      },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/14-mobile-detail-ap.webp',
+      //   alt: 'Détail d\'une autorisation de paiement sur mobile',
+      //   caption: 'Version mobile : détail, étapes du circuit et actions.',
+      // },
+      // {
+      //   src: '/images/projects/suivi-budgetaire/15-mobile-menu.webp',
+      //   alt: 'Menu de navigation ouvert sur mobile',
+      //   caption: 'Version mobile : menu de navigation.',
+      // },
     ],
     featured: true,
     order: 1,
